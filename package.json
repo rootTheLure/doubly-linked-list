@@ -1,0 +1,15 @@
+{
+  "author": "rootTheLure",
+  "name": "doubly-linked-list",
+  "version": "1.0.0",
+  "description": "stand-alone, independent component, which can be used wherever needed",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rootTheLure/DoublyLinkedList.git"
+  },
+  "devDependencies": {
+    "mocha": "*",
+    "chai": "*"
+  }
+}
