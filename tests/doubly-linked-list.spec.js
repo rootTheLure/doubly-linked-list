@@ -16,12 +16,21 @@ describe('doubly-linked-list', function () {
 
             result.should.be.equal(data);
         });
-
     });
 
     describe('insertAt', function () {
         it('should put data by index', function () {
+            var data0 = 1,
+                data1 = 2,
+                data2 = 3,
+                result;
 
+            ddl.append(data0).append(data1).append(data2);
+            ddl.insertAt(2, 8);
+
+            result = ddl.at(2);
+
+            result.should.be.equal(8);
         });
     });
 
@@ -31,15 +40,9 @@ describe('doubly-linked-list', function () {
         });
 
         it('should return data by index', function () {
-
-        });
-    });
-
-    describe('head', function () {
-        it('should return data of the head element', function () {
-            var data0 = { 'prop': 1 },
-                data1 = { 'prop': 2 },
-                data2 = { 'prop': 3 },
+            var data0 = 1,
+                data1 = 2,
+                data2 = 3,
                 result;
 
             ddl.append(data0).append(data1).append(data2);
@@ -49,9 +52,73 @@ describe('doubly-linked-list', function () {
         });
     });
 
+    describe('indexOf', function () {
+        it('should return -1 if data not found', function () {
+            var data0 = 1,
+                data1 = 2,
+                data2 = 3,
+                result;
+
+            ddl.append(data0).append(data1).append(data2);
+            result = ddl.indexOf(4);
+
+            result.should.be.equal(-1);
+        });
+
+        it('should return index of element if data is found', function () {
+            var data0 = 1,
+                data1 = 2,
+                data2 = 3,
+                result;
+
+            ddl.append(data0).append(data1).append(data2);
+            result = ddl.indexOf(2);
+
+            result.should.be.equal(1);
+        });
+    });
+
+    describe('head', function () {
+        it('should return data of the head element', function () {
+            var data0 = 1,
+                data1 = 2,
+                data2 = 3,
+                result;
+
+            ddl.append(data0).append(data1).append(data2);
+            result = ddl.head();
+
+            result.should.be.equal(1);
+        });
+    });
+
     describe('tail', function () {
         it('should return data of the tail element', function () {
+            var data0 = 1,
+                data1 = 2,
+                data2 = 3,
+                result;
 
+            ddl.append(data0).append(data1).append(data2);
+            result = ddl.tail();
+
+            result.should.be.equal(3);
+        });
+    });
+
+    describe('insertAt', function () {
+        it('should delete data by index', function () {
+            var data0 = 1,
+                data1 = 2,
+                data2 = 3,
+                result;
+
+            ddl.append(data0).append(data1).append(data2);
+            ddl.deleteAt(1);
+
+            result = ddl.at(1);
+
+            result.should.be.equal(3);
         });
     });
 
