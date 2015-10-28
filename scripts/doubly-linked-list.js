@@ -27,7 +27,7 @@ DoublyLinkedList.prototype.at = function(index) {
 };
 
 DoublyLinkedList.prototype._at = function(index) {
-    if (isNaN(index) || index > this.length) {
+    if (isNaN(index) || index > this.length || index < 0) {
         throw new Error('Invalid index.');
     }
 
@@ -72,13 +72,15 @@ DoublyLinkedList.prototype.reverse = function() {
         currentT = this._tail.prev,
         index = 0, tmp;
 
-    while(index != Math.floor(this.index / 2)){
+    while(index != Math.floor(this.length / 2)){
         tmp = currentH.data;
         currentH.data = currentT.data;
         currentT.data = tmp;
 
         currentH = currentH.next;
         currentT = currentT.prev;
+
+        index++;
     }
 
     return this;
